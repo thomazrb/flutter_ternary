@@ -8,6 +8,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool value = false;
+  Color selectedColor() {
+    if (value) {
+      return Colors.blue;
+    } else {
+      return Colors.red;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +31,16 @@ class _HomePageState extends State<HomePage> {
             Container(
               width: 200,
               height: 200,
-              color: Colors.red,
+              color: selectedColor(),
             ),
-            ElevatedButton(onPressed: () {}, child: const Text('Me aperte!'))
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    value = !value;
+                    debugPrint(value.toString());
+                  });
+                },
+                child: const Text('Me aperte!'))
           ],
         ),
       ),
