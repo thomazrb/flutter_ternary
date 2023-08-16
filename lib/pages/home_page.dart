@@ -9,13 +9,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool value = false;
-  Color selectedColor() {
-    if (value) {
-      return Colors.blue;
-    } else {
-      return Colors.red;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +24,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               width: 200,
               height: 200,
-              color: selectedColor(),
+              color: value ? Colors.blue : Colors.red,
             ),
             ElevatedButton(
                 onPressed: () {
